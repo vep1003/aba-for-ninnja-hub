@@ -1,0 +1,44 @@
+local library = loadstring(game:HttpGet("https://pastebin.com/raw/m0pyx9qq"))();
+
+if game.PlaceId == 1458767429 then
+
+local Gamer1 = library:CreateSection("Aba");
+
+Gamer1:Button("AutoFarm Points", function()
+    for i,v in pairs(game.Players:GetChildren()) do
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame
+wait(0.8)
+
+end
+     end)
+Gamer1:Button("AutoHit", function()
+    getgenv().farmer = true
+while wait() do
+    if getgenv().farmer == true then
+    
+local args = {
+    [1] = "m1",
+    [2] = {
+        ["air"] = false,
+        ["mousehit"] = CFrame.new(-484.569305, -176.252823, 11561.1416, -0.622997701, -0.303034544, 0.721140742, -0, 0.92191124, 0.387401372, -0.782223761, 0.241350159, -0.574348509)
+    }
+}
+
+game:GetService("Players").LocalPlayer.Backpack.ServerTraits.Input:FireServer(unpack(args))
+end
+end
+end)
+
+
+
+Gamer1:Toggle("Anti Afk", function()
+    local vu = game:GetService("VirtualUser")
+game:GetService("Players").LocalPlayer.Idled:connect(function()
+   vu:Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+   wait(1)
+   vu:Button2Up(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
+end)
+end)
+
+library:Ready();
+end
